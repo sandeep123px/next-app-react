@@ -5,7 +5,7 @@ const Login = () => {
   const router = useRouter();
   useEffect(() => {
     const token = localStorage.getItem("jwt");
-    if (token !== undefined && token !== "" && token !== null) {
+    if (token !== undefined && token !== null && token !== "") {
       router.push("/Articles");
     }
   });
@@ -17,13 +17,16 @@ const Login = () => {
       identifier: identifier,
       password: password,
     };
-    const login = await fetch(`https://stapi-next-app.herokuapp.com/auth/local`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(user),
-    });
+    const login = await fetch(
+      `https://stapi-next-app.herokuapp.com/auth/local`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
+      }
+    );
     const loginResponse = await login.json();
     localStorage.setItem("jwt", loginResponse.jwt);
     router.push("/Articles");

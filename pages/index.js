@@ -12,7 +12,6 @@ const Home = ({ data }) => {
         flexWrap="wrap"
       >
         {data.map((x, i) => {
-          // if (i < 3)
           return (
             <Box width={{ _: "100%", md: "30%" }}>
               <Card key={i} movie={x} />

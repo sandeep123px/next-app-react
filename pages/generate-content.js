@@ -1,4 +1,3 @@
-import { Box } from "reflexbox";
 var faker = require("faker");
 const GenerateContent = () => {
   let i;
@@ -9,13 +8,16 @@ const GenerateContent = () => {
         Title: faker.lorem.sentence(),
         Content: faker.lorem.paragraph(),
       };
-      const generate = await fetch(`https://stapi-next-app.herokuapp.com/posts`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(user),
-      });
+      const generate = await fetch(
+        `https://stapi-next-app.herokuapp.com/posts`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(user),
+        }
+      );
       const generateResponse = await generate.json();
       console.log(generateResponse, "Response");
     }

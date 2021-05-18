@@ -31,10 +31,10 @@ const Movies = ({ movies, page }) => {
 
 export async function getServerSideProps({ query: { page = 1 } }) {
   const start = +page === 1 ? 0 : (+page - 1) * 3;
-  const moviesCount = await fetch(`http://localhost:1337/movies/count`);
+  const moviesCount = await fetch(`https://stapi-next-app.herokuapp.com/movies/count`);
   const numberOfMovies = await moviesCount.json();
   const res = await fetch(
-    `http://localhost:1337/movies?_limit=3&_start=${start}`
+    `https://stapi-next-app.herokuapp.com/movies?_limit=3&_start=${start}`
   );
   const data = await res.json();
   return {

@@ -7,7 +7,7 @@ const Posts = ({ data, numberOfPosts }) => {
   const [hasMore, setHasMore] = useState(true);
   const getMorePosts = async () => {
     const response = await fetch(
-      `http://localhost:1337/posts?_start=${posts.length}&_limit=10`
+      `https://stapi-next-app.herokuapp.com/posts?_start=${posts.length}&_limit=10`
     );
     const res = await response.json();
     setPosts((posts) => [...posts, ...res]);
@@ -63,9 +63,9 @@ const Posts = ({ data, numberOfPosts }) => {
   );
 };
 export const getServerSideProps = async () => {
-  const posts = await fetch(`http://localhost:1337/posts?_limit=10`);
+  const posts = await fetch(`https://stapi-next-app.herokuapp.com/posts?_limit=10`);
   const responsePosts = await posts.json();
-  const numberOfPosts = await fetch(`http://localhost:1337/posts/count`);
+  const numberOfPosts = await fetch(`https://stapi-next-app.herokuapp.com/posts/count`);
   const responseNumberOfPosts = await numberOfPosts.json();
   return {
     props: {

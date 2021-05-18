@@ -24,7 +24,7 @@ const Home = ({ data }) => {
   );
 };
 export async function getServerSideProps() {
-  const res = await fetch(`http://localhost:1337/movies`);
+  const res = await fetch(`https://stapi-next-app.herokuapp.com/movies`);
   const data = await res.json();
   return {
     props: {

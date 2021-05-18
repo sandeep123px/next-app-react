@@ -25,7 +25,7 @@ const Movie = ({ movie }) => {
 };
 export async function getServerSideProps(context) {
   const { id } = context.query;
-  const response = await fetch(`http://localhost:1337/movies/${id}`);
+  const response = await fetch(`https://stapi-next-app.herokuapp.com/movies/${id}`);
   const data = await response.json();
   return {
     props: { movie: data },

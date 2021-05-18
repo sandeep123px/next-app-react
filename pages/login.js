@@ -17,7 +17,7 @@ const Login = () => {
       identifier: identifier,
       password: password,
     };
-    const login = await fetch(`http://localhost:1337/auth/local`, {
+    const login = await fetch(`https://stapi-next-app.herokuapp.com/auth/local`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

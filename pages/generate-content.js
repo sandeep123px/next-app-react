@@ -9,7 +9,7 @@ const GenerateContent = () => {
         Title: faker.lorem.sentence(),
         Content: faker.lorem.paragraph(),
       };
-      const generate = await fetch(`http://localhost:1337/posts`, {
+      const generate = await fetch(`https://stapi-next-app.herokuapp.com/posts`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -37,7 +37,7 @@ const PayedArticles = ({ articles }) => {
   );
 };
 export const getServerSideProps = async () => {
-  const res = await fetch(`http://localhost:1337/payed-articles`);
+  const res = await fetch(`https://stapi-next-app.herokuapp.com/payed-articles`);
   const data = await res.json();
   return {
     props: {

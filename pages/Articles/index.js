@@ -8,7 +8,8 @@ const PayedArticles = ({ articles }) => {
     if (token === undefined || token === null || token === "") {
       router.push("/login");
     }
-  });login
+  });
+  login;
   return (
     <>
       {token && (
